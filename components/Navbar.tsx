@@ -22,7 +22,7 @@ const Navbar = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
-            Best <span className="font-bold">Eats</span>
+            More <span className="font-bold">Eats</span>
           </h1>
         </div>
 
