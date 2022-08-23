@@ -13,7 +13,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   return (
-    <div className="max-w[1640px] mx-auto flex justify-between items-center p-4">
+    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
       {/* Left Side */}
       <div className="flex item-center justify-center">
         <div className="flex items-center justify-center">

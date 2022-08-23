@@ -7,7 +7,7 @@
     @apply border border-black rounded-lg px-5 py-1;
   }
 }
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -22,7 +22,7 @@ a {
 
 * {
   box-sizing: border-box;
-}
+} */
 
 /* @media (prefers-color-scheme: dark) {
   html {
