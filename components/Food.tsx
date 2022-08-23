@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
+import { BsFillCartFill } from "react-icons/bs";
+import { MdFavorite } from "react-icons/md";
 import { data } from "../Data/Data";
 
 const Food = () => {
@@ -120,15 +122,28 @@ const Food = () => {
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-[200px] object-cover rounded-t-lg"
+              className="w-full  object-cover rounded-t-lg"
             />
-            <div className="flex justify-between px-3 py-4">
-              <p className="font-bold">{item.name}</p>
-              <p>
-                <span className="bg-orange-500 text-white p-2 rounded-lg">
-                  <span>$</span> {item.price}
-                </span>
-              </p>
+            <div className="flex justify-between px-4 py-4 flex-col">
+              <p className="font-bold text-sm">{item.name}</p>
+              <div className="mt-2 flex items-center justify-between">
+                <p className="font-bold">
+                  <span className="text-orange-500  p-2 rounded-lg">
+                    <span>$</span> {item.price}
+                  </span>
+                </p>
+                <div className="flex items-center">
+                  <MdFavorite
+                    className="text-red-600 mr-5 cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out"
+                    size={25}
+                  />
+
+                  <BsFillCartFill
+                    className="text-red-600 cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out"
+                    size={25}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         ))}
