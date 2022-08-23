@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { useState } from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
@@ -51,7 +52,7 @@ const Food = () => {
         Top Rated Menu Items
       </h1>
       {/* filter row */}
-      <div className="flex flex-col lg:flex-row justify-between mt-8">
+      <div className="flex flex-col md:flex-row justify-between mt-8">
         {/* filter type */}
         <div>
           <p className="font-bold text-gray-700">Filter type</p>
@@ -86,7 +87,7 @@ const Food = () => {
         {/* filter Price */}
         <div>
           <p className="font-bold text-gray-700">Filter Price</p>
-          <div className="flex justify-between max-w-[390px] w-full">
+          <div className="flex flex-wrap justify-between  w-full">
             <button
               onClick={() => filterPrice(10)}
               className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
@@ -115,28 +116,33 @@ const Food = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
         {foods.map((item, index) => (
           <div
             key={`${item.name}+${item.id}`}
-            className="border rounded-lg shadow-lg hover:scale-105 duration-300"
+            className="border rounded-xl shadow-lg hover:scale-105 duration-300 "
           >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full  object-cover rounded-t-lg"
-            />
+            <div className="w-full h-[140px] sm:h-[180px] md:h-[200px]  xl:h-[250px]  relative ">
+              <Image
+                className="rounded-t-xl"
+                src={item.image}
+                alt={item.name}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+
             <div className="flex justify-between px-4 py-4 flex-col">
               <p className="font-bold text-sm">{item.name}</p>
               <div className="mt-2 flex items-center justify-between">
-                <p className="font-bold">
+                <p className="font-bold text-base md:text-lg">
                   <span className="text-orange-500  p-2 rounded-lg">
                     <span>$</span> {item.price}
                   </span>
                 </p>
                 <div className="flex items-center">
                   <MdFavorite
-                    className="text-red-600 mr-5 cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out"
+                    className="text-red-600 mr-1 sm:mr-3 md:mr-5 cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out"
                     size={25}
                   />
 

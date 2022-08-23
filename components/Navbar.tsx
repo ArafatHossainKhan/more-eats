@@ -18,7 +18,7 @@ const Navbar = () => {
   const { cartItems } = useCartContext();
 
   return (
-    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 sticky top-0 z-50 bg-slate-50">
+    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 sticky top-0 z-50 bg-white">
       {/* Left Side */}
       <div className="flex item-center justify-center">
         <div className="flex items-center justify-center">
@@ -52,7 +52,6 @@ const Navbar = () => {
         onClick={() => setCart(!cart)}
         className="bg-black text-white flex items-center py-2"
       >
-        {" "}
         {cartItems.length > 0 ? (
           <span className="mx-1 flex justify-center items-center w-4 h-4 bg-white text-black px-1 rounded-full text-xs font-bold">
             {cartItems.length}
@@ -65,9 +64,9 @@ const Navbar = () => {
       </button>
 
       {/* mobile menu */}
-      {cart ? <Cart cart={cart} setCart={setCart} /> : ""}
+
       {nav ? (
-        <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
+        <div className="bg-black/80 fixed w-full h-screen z-20 top-0 left-0"></div>
       ) : (
         ""
       )}
@@ -75,8 +74,8 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed  top-0 left-0 w-[300px] h-screen bg-white z-10 duration-500 transition-all ease-in-out"
-            : "fixed  top-0 left-[100%] w-[300px] h-screen bg-white z-10 duration-300"
+            ? "fixed  top-0 left-0 w-[300px] h-screen bg-white z-50 duration-500 transition-all ease-in-out"
+            : "fixed  top-0 left-[100%] w-[300px] h-screen bg-white z-50 duration-300"
         }
       >
         <AiOutlineClose
@@ -121,6 +120,7 @@ const Navbar = () => {
           </ul>
         </nav>
       </div>
+      {cart ? <Cart cart={cart} setCart={setCart} /> : <></>}
     </div>
   );
 };

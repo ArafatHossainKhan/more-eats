@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+
 const Hero = () => {
   return (
     <div className="max-w-[1640px] mx-auto p4">
@@ -11,12 +12,16 @@ const Hero = () => {
             Foods <span className="text-white">Delivered</span>
           </h1>
         </div>
-
-        <img
-          className="w-full max-h-[500px] object-cover"
-          src="https://images.pexels.com/photos/1600727/pexels-photo-1600727.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="hero-img"
-        />
+        <div className="w-full sm:h-[350px] md:h-[400px] lg:h-[400px] xl:h-[500px] h-[300px] relative">
+          <Image
+            className="-z-10"
+            src="https://images.pexels.com/photos/1600727/pexels-photo-1600727.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="hero-img"
+            layout="fill"
+            objectFit="cover"
+            priority={true}
+          />
+        </div>
       </div>
     </div>
   );

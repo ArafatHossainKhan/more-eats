@@ -18,6 +18,7 @@ type CartContext = {
   cartQuantity: number;
   openCart: () => void;
   closeCart: () => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext({} as CartContext);
@@ -76,6 +77,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     (quantity, item) => item.quantity + quantity,
     0
   );
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
@@ -90,6 +96,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         cartQuantity,
         openCart,
         closeCart,
+        clearCart,
       }}
     >
       {children}
