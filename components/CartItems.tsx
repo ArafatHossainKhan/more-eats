@@ -20,12 +20,12 @@ const CartItems = ({ id, quantity }: CartItemsProps) => {
         <img className="h-[70px] rounded-lg" src={item.image} alt={item.name} />
         <div className="px-2 flex flex-col">
           <h1>{item.name}</h1>
-          <div className="flex items-center ">
+          <div className="flex items-center">
             <p className="font-bold">
               <span>$</span>
               {item.price}
             </p>
-            <button className="ml-3">
+            <span className="ml-3 bg-orange-600 p-1 rounded-md text-white">
               <AiOutlineClose
                 size={15}
                 onClick={() => {
@@ -33,8 +33,8 @@ const CartItems = ({ id, quantity }: CartItemsProps) => {
                 }}
                 className="font-extrabold "
               />
-            </button>
-            <div className="mx-16 flex items-center">
+            </span>
+            <div className="mx-6 flex items-center">
               <MdRemove onClick={() => decreaseCartQuantity(id)} />
 
               <span className="m-1 w-2 rounded-md bg-orange-600 px-4 text-center text-white flex justify-center items-center">
