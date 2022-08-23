@@ -9,11 +9,16 @@ import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
 import { FaUser, FaWallet } from "react-icons/fa";
 import { MdFavorite, MdHelp } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
+import { useCartContext } from "../context/CartContext";
+import Cart from "./Cart";
 
 const Navbar = () => {
+  const [cart, setCart] = useState(false);
   const [nav, setNav] = useState(false);
+  const { cartItems } = useCartContext();
+
   return (
-    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
+    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 sticky top-0 z-50 bg-slate-50">
       {/* Left Side */}
       <div className="flex item-center justify-center">
         <div className="flex items-center justify-center">
@@ -43,18 +48,30 @@ const Navbar = () => {
         />
       </div>
 
-      <button className="bg-black text-white flex items-center py-2">
+      <button
+        onClick={() => setCart(!cart)}
+        className="bg-black text-white flex items-center py-2"
+      >
+        {" "}
+        {cartItems.length > 0 ? (
+          <span className="mx-1 flex justify-center items-center w-4 h-4 bg-white text-black px-1 rounded-full text-xs font-bold">
+            {cartItems.length}
+          </span>
+        ) : (
+          ""
+        )}
         <BsFillCartFill className="mr-2" size={20} />
         Cart
       </button>
 
       {/* mobile menu */}
-
+      {cart ? <Cart cart={cart} setCart={setCart} /> : ""}
       {nav ? (
         <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
       ) : (
         ""
       )}
+
       <div
         className={
           nav

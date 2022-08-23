@@ -2,10 +2,12 @@
 import { useState } from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
+import { useCartContext } from "../context/CartContext";
 import { data } from "../Data/Data";
 
 const Food = () => {
   const [foods, setFoods] = useState(data);
+  const { increaseCartQuantity, openCart, closeCart } = useCartContext();
 
   //filter pizza burger / pizza
 
@@ -139,6 +141,7 @@ const Food = () => {
                   />
 
                   <BsFillCartFill
+                    onClick={() => increaseCartQuantity(item.id)}
                     className="text-red-600 cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out"
                     size={25}
                   />
